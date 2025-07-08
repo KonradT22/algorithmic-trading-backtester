@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+*egg-info/
+.mypy_cache/
+.pytest_cache/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Data
+*.csv
+*.parquet
+*.feather
+*.pkl
+*.json
+*.db
+
+# OS Specific
+.DS_Store
+Thumbs.db
+
+# Anaconda/Conda specific
+.conda/
+.envs/
