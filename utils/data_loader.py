@@ -68,3 +68,26 @@ def save_data_to_csv(data: pd.DataFrame, ticker: str, directory: str = RAW_DATA_
         print(f"Data for {ticker} saved successfully.") # Confirmation
     except Exception as e:
         print(f"Error saving data for {ticker} to {file_path}: {e}")
+
+# --- Example Usage (This part runs when the script is executed directly) ---
+if __name__ == "__main__":
+    # Define tickers and date range for demonstration
+    tickers = ["AAPL", "MSFT", "GOOGL"]
+    # Get today's date
+    today = datetime.date.today()
+    # Set end date to today
+    end_date = today.strftime('%Y-%m-%d')
+    # Set start date to 5 years ago from today
+    start_date = (today - datetime.timedelta(days=5*365)).strftime('%Y-%m-%d')
+
+    print(f"Starting data ingestion for multiple tickers from {start_date} to {end_date}...")
+
+    for ticker in tickers:
+        # 1. Download the data
+        stock_data = download_stock_data(ticker, start_date, end_date)
+
+        # 2. Save the downloaded data
+        save_data_to_csv(stock_data, ticker)
+        print("-" * 30) # Separator for readability
+
+    print("\nData ingestion process completed.")
